@@ -102,20 +102,3 @@ def determine_monthly_trend(monthly_averages):
         trends_output.append(f"{prev_month} -> {curr_month}: {curr_temp}°C {arrow} {trend_text}")
         
     return trends_output
-
-# Блок для проверки работы функций
-if __name__ == "__main__":
-    # Тестовые данные (простые числа для быстрой проверки логики)
-    test_dates = ["01.01", "02.01", "03.01", "04.01", "05.01", "06.01", "07.01"]
-    test_temps = [-10, -12, -15, -10, -5, -2, 0]
-    
-    print("Средняя температура за 3 дня:", smooth_temperatures(test_dates, test_temps, window_size=3))
-    
-    hot, cold = find_temperature_anomalies(test_dates, test_temps, window_size=3)
-    print("\nТеплая аномалия:", hot)
-    print("Холодная аномалия:", cold)
-    
-    print("\nТренды по месяцам:")
-    test_months = {"Янв": -10, "Фев": -5, "Мар": 2, "Апр": -1}
-    for trend in determine_monthly_trend(test_months):
-        print(trend)
